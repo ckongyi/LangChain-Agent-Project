@@ -35,14 +35,12 @@ def knowledge_lookup(query):
     qa_chain = load_qa_chain(llm, chain_type="stuff")
     related_docs = retriever.get_relevant_documents(query)
     return qa_chain.run(input_documents=related_docs, question=query)
-
 # Tool 1: 知识库
 knowledge_tool = Tool(
     name="DocumentQA",
     func=knowledge_lookup,
     description="适用于回答与 guide.txt 文档相关的问题"
 )
-
 # Tool 2: 天气搜索（使用 SerpAPI 模拟调用天气）
 search = SerpAPIWrapper()
 search_tool = Tool(
@@ -50,7 +48,6 @@ search_tool = Tool(
     func=search.run,
     description="适用于获取实时信息，例如天气、新闻、百科等"
 )
-
 # Tool 3: 本地函数执行器（Python 代码）
 python_tool = PythonREPLTool()
 
@@ -62,7 +59,6 @@ agent = initialize_agent(
     memory=memory,
     verbose=True
 )
-
 def run_chat():
     print("欢迎使用智能 Agent，输入 '退出' 结束对话。\n")
     while True:
