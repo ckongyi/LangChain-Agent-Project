@@ -18,7 +18,6 @@ os.environ["SERPAPI_API_KEY"] = "dce6c0cd4bf3223b4326def0b79123ac1e4b9b8b9136fe6
 # 初始化 LLM 和 Memory
 llm = ChatOpenAI(temperature=0)
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
-
 # 知识库构建：加载文档、切分、Embedding
 loader = TextLoader("guide.txt")
 documents = loader.load()
@@ -26,7 +25,6 @@ text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 docs = text_splitter.split_documents(documents)
 embedding = OpenAIEmbeddings()
 vectorstore = FAISS.from_documents(docs, embedding)
-
 # 知识库问答链
 def knowledge_lookup(query):
     retriever = vectorstore.as_retriever()
