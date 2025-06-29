@@ -22,7 +22,7 @@ llm = ChatOpenAI(temperature=0)
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
 # 知识库构建：加载文档、切分、Embedding
-loader = TextLoader("./docs/guide.txt")
+loader = TextLoader("guide.txt")
 documents = loader.load()
 text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 docs = text_splitter.split_documents(documents)
