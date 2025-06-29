@@ -15,7 +15,7 @@ import os
 
 # 配置环境变量（填入你的 OpenAI Key 和 SerpAPI Key）
 os.environ["OPENAI_API_KEY"] = "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"
-os.environ["SERPAPI_API_KEY"] = "your-serpapi-key"
+os.environ["SERPAPI_API_KEY"] = "dce6c0cd4bf3223b4326def0b79123ac1e4b9b8b9136fe6cdc64a98b4d37956e"
 
 # 初始化 LLM 和 Memory
 llm = ChatOpenAI(temperature=0)
