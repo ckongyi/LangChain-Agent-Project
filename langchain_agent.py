@@ -14,7 +14,7 @@ from langchain.chains.question_answering import load_qa_chain
 import os
 
 # 配置环境变量（填入你的 OpenAI Key 和 SerpAPI Key）
-os.environ["OPENAI_API_KEY"] = "your-openai-key"
+os.environ["OPENAI_API_KEY"] = "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"
 os.environ["SERPAPI_API_KEY"] = "your-serpapi-key"
 
 # 初始化 LLM 和 Memory
